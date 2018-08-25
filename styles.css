@@ -1,0 +1,50 @@
+* {
+  font-size: 16px;
+  font-family: 'open sans', sans-serif;
+  margin: 0px;
+}
+
+h1 {
+  font-size: 6vw;
+  color: #ffffff;
+}
+.user-input {
+  background-color: #455A64;
+  height: 100%;
+  float: left;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  padding-top: 20%;
+}
+
+.logo {
+  height: 6vw;
+}
+
+.link-title,
+.link-url {
+  display: block;
+  margin: 15px auto;
+  width: 60%;
+}
+
+.user-input-button {
+  background-color: #ffc107;
+  width: 60%;
+}
+
+.user-input-button:hover {
+  background-color: #ffd773;
+}
+
+.link-display {
+  background-color: #cfd8dc;
+  height: 100%;
+  float: right;
+  left: 50%;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  padding: 5%;
+}

@@ -23,6 +23,5 @@ function addCard() {
       <h4><span class = "read-button">Read</span> 
       <span class = "delete-button">Delete</span></h4>
     </div>`
-  linkDisplay.innerHTML = addInput
+  linkDisplay.innerHTML = addInput;
 }
-

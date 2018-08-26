@@ -30,6 +30,7 @@ function addCard() {
       <h4><input class = "read-button" type = "button" value = "Read"> 
       <input class = "delete-button" type = "button" value = "Delete"></h4>
     </div>`
+
   linkDisplay.insertAdjacentHTML('afterbegin', addInput)
 }
  

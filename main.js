@@ -22,5 +22,5 @@ function addCard() {
       <h3 class = "inputed-URL">${newCard.linkURL}</h3>
       <h4><span class = "read-button"> <span class = "delete-button"></h4>
     </div>`
-  linkDisplay.prepend(addInput)
+  linkDisplay.innerHTML = addInput;
 }

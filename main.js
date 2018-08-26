@@ -19,8 +19,9 @@ function addCard() {
   console.log(newCard.linkURL);
   var addInput = `<div>
       <h2 class = "inputed-title">${newCard.linkTitle}</h2>
-      <h3 class = "inputed-URL">${newCard.linkURL}</h3>
-      <h4><span class = "read-button"> <span class = "delete-button"></h4>
+      <h3 class = "inputed-URL"><a href = "${newCard.linkURL}">${newCard.linkURL}</a></h3>
+      <h4><span class = "read-button">Read</span> 
+      <span class = "delete-button">Delete</span></h4>
     </div>`
   linkDisplay.innerHTML = addInput;
 }

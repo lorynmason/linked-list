@@ -15,8 +15,14 @@ body {
 }
 
 h2 {
-  
+  color: #445A64;
+  font-size: 3vw;
 } 
+
+h3 a {
+  color: #607d8b;
+  font-size: 2vw;
+}
 
 .user-input {
   background-color: #455A64;

@@ -7,32 +7,56 @@
 h1 {
   font-size: 6vw;
   color: #ffffff;
+  margin-top: 25%;
 }
 
-body {
-  display: grid;
-  grid-template-columns: auto auto;
+div {
+  background-color: #ffffff;
+  padding: 7px;
+  padding-bottom: 25px;
+  width: 95%;
+  text-align: left;
+  margin: 0px 0px 15px 1%;
 }
 
 h2 {
   color: #445A64;
   font-size: 3vw;
+  border-bottom: 1px solid #cfd8dc; 
+  padding: 5px;
 } 
+
+h3 {
+  border-bottom: 1px solid #cfd8dc; 
+  padding: 10px;
+}
 
 h3 a {
   color: #607d8b;
-  font-size: 2vw;
+  font-size: 2.5vw;
+  font-weight: 400;
+}
+
+h3 a:hover {
+  color: #455a64;
+  text-decoration: underline solid #ffc107;
+}
+
+h4 {
+  padding: 10px;
 }
 
 .user-input {
   background-color: #455A64;
-  height: 100%;
-  float: left;
-  position: absolute;
-  width: 50%;
   text-align: center;
-  padding-top: 20%;
-}
+  }
+
+.link-display {
+  background-color: #cfd8dc;
+  left: 50%;
+  text-align: center;
+  padding-top: 15px;
+  }
 
 .logo {
   height: 6vw;
@@ -54,17 +78,60 @@ h3 a {
   background-color: #ffd773;
 }
 
-.link-display {
-  background-color: #cfd8dc;
-  height: 100%;
-  float: right;
-  left: 50%;
-  position: absolute;
-  width: 50%;
-  text-align: center;
-  padding: 5%;
+.read-button,
+.delete-button {
+  border: none;
+  background-color: #ffffff;
+  color: #607d8b;
+  text-decoration: underline solid #f2f4f4;
 }
 
-.read {
-  background-color: chartreuse;
+.read-button {
+  float: left;
+}
+
+.delete-button {
+  float: right;
+}
+
+.read-button:hover,
+.delete-button:hover {
+  border: none;
+  background-color: #ffffff;
+  color: #455a64;
+  font-family: 'open sans', sans-serif;
+  text-decoration: underline solid #ffc107;
+}
+
+.user-input {
+  grid-area: userinput;
+  height: 50vh;
+}
+
+.link-display {
+  grid-area: linkdisplay;
+  height: 50vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-areas: 
+    'userinput'
+    'linkdisplay';
+}
+
+@media (min-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      'userinput linkdisplay';
+  }
+
+.user-input {
+  height: 100vh;
+}
+
+.link-display {
+  height: 100vh;
+}
 }

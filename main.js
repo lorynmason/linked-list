@@ -5,15 +5,19 @@ var inputedTitle = document.querySelector('.inputed-title');
 var linkDisplay = document.querySelector('.link-display');
 var deleteButton;
 var readButton;
-//when user clicks enter button run function addElem
-// document.body.click = addElem;
+
+linkTitle.focus();
+
 inputButton.addEventListener('click', function() {
-addCard();
-clearInputs();
+  var newCard = new Card(linkTitle, linkURL);
+  addCard(newCard);
+  clearInputs();
 })
-// deleteButton.addEventListener('click', deleteLink);
+
 linkDisplay.addEventListener('click', function(event) {
-  markAsRead(event);
+  var boundCard = runCardButtons.bind(event.target.parentNode);
+  boundCard(event);
+  
 })
 
 
@@ -22,11 +26,11 @@ function Card(linkTitle, linkURL) {
   this.linkURL = linkURL.value;
 }
 
-function addCard() {
+function addCard(newCard) {
   event.preventDefault();
-  var newCard = new Card(linkTitle, linkURL);
+  console.log(newCard)
   var addInput = `
-    <div>
+    <div class="card">
       <h2 class = "inputed-title">${newCard.linkTitle}</h2>
       <h3 class = "inputed-URL"><a href = "${newCard.linkURL}">${newCard.linkURL}</a></h3>
       <input class="read-button" type="button" value="Read"> 
@@ -42,14 +46,11 @@ function clearInputs() {
   linkTitle.focus();
 }
 
-function markAsRead() {
-  console.log('click');
-  readButton = document.querySelector('.read-button');
-  if (event.target === readButton) {
+function runCardButtons() {
+  console.log(event.target)
+  if (event.target.classList.contains('read-button')) {
     event.target.parentNode.classList.toggle('read');
+  } else if (event.target.classList.contains('delete-button')) {
+    event.target.parentNode.remove();
   }
-}
-
-function deleteCard() {
-  document.querySelector('.delete-button');
 }

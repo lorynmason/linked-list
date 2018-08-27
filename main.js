@@ -7,17 +7,17 @@ var deleteButton;
 var readButton;
 
 linkTitle.focus();
-//when user clicks enter button run function addElem
-// document.body.click = addElem;
+
 inputButton.addEventListener('click', function() {
-addCard();
-clearInputs();
+  var newCard = new Card(linkTitle, linkURL);
+  addCard(newCard);
+  clearInputs();
 })
-// deleteButton.addEventListener('click', deleteLink);
+
 linkDisplay.addEventListener('click', function(event) {
   var boundCard = runCardButtons.bind(event.target.parentNode);
-  // var deleteCard = deleteCard.bind
   boundCard(event);
+  
 })
 
 
@@ -26,9 +26,9 @@ function Card(linkTitle, linkURL) {
   this.linkURL = linkURL.value;
 }
 
-function addCard() {
+function addCard(newCard) {
   event.preventDefault();
-  var newCard = new Card(linkTitle, linkURL);
+  console.log(newCard)
   var addInput = `
     <div class="card">
       <h2 class = "inputed-title">${newCard.linkTitle}</h2>
@@ -47,22 +47,10 @@ function clearInputs() {
 }
 
 function runCardButtons() {
-  console.log(this);
-  readButton = document.querySelector('.read-button');
-  deleteButton = document.querySelector('.delete-button');
-  if (event.target === readButton) {
-    this.classList.toggle('read');
-  } else if (event.target === deleteButton) {
-    this.remove();
+  console.log(event.target)
+  if (event.target.classList.contains('read-button')) {
+    event.target.parentNode.classList.toggle('read');
+  } else if (event.target.classList.contains('delete-button')) {
+    event.target.parentNode.remove();
   }
 }
-
-// function deleteCard() {
-//   console.log(this);
-//   console.log(event);
-//   deleteButton = document.querySelector('.delete-button');
-//   if (event.target === deleteButton) {
-//     event.target.parentNode.remove();
-//     ;
-//   }
-// }

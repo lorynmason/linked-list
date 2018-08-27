@@ -3,8 +3,6 @@ var linkURL = document.querySelector('.link-url');
 var inputButton = document.querySelector('.user-input-button');
 var inputedTitle = document.querySelector('.inputed-title');
 var linkDisplay = document.querySelector('.link-display');
-var deleteButton;
-var readButton;
 
 linkTitle.focus();
 
@@ -15,9 +13,7 @@ inputButton.addEventListener('click', function() {
 })
 
 linkDisplay.addEventListener('click', function(event) {
-  var boundCard = runCardButtons.bind(event.target.parentNode);
-  boundCard(event);
-  
+  runCardButtons(event);
 })
 
 
@@ -49,6 +45,7 @@ function clearInputs() {
 function runCardButtons() {
   console.log(event.target)
   if (event.target.classList.contains('read-button')) {
+    console.log(event.target.parentNode.classList)
     event.target.parentNode.classList.toggle('read');
   } else if (event.target.classList.contains('delete-button')) {
     event.target.parentNode.remove();

@@ -111,6 +111,14 @@ h4 {
   color: #f05a28;
 }
 
+.read-counter{
+color: #455a64;
+}
+
+.link-counter{
+color: #455a64;
+}
+
 .user-input {
   grid-area: userinput;
   height: 50vh;

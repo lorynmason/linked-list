@@ -3,8 +3,19 @@ var linkURL = document.querySelector('.link-url');
 var inputButton = document.querySelector('.user-input-button');
 var inputedTitle = document.querySelector('.inputed-title');
 var linkDisplay = document.querySelector('.link-display');
+var readCounter = document.querySelector('.read-counter');
+var linkCounter = document.querySelector('.link-counter');
+var read;
+var links = document.getElementsByTagName('div');
 
 linkTitle.focus();
+
+// readCounter.innerText = `Number of Read Links: ${read.length}`
+
+
+function countLinks() {
+  linkCounter.innerText = `Number of Links: ${links.length}`
+}
 
 inputButton.addEventListener('click', function() {
   if (linkTitle.value === '' || linkURL.value === '') {
@@ -15,8 +26,8 @@ inputButton.addEventListener('click', function() {
   var newCard = new Card(linkTitle, linkURL);
   addCard(newCard);
   clearInputs();
+  countLinks();
   inputButton.disabled = true;
-
 })
 
 linkTitle.addEventListener('keyup', function() {
@@ -39,6 +50,7 @@ linkURL.addEventListener('paste', function() {
 
 linkDisplay.addEventListener('click', function(event) {
   runCardButtons(event);
+  readLinks(event);
 })
 
 function Card(linkTitle, linkURL) {
@@ -46,9 +58,20 @@ function Card(linkTitle, linkURL) {
   this.linkURL = linkURL.value;
 }
 
+function readLinks() {
+    read = document.querySelectorAll('.read');
+  // console.log(event.target.classList.contains('read-button'))
+    if (event.target.classList.contains('read-button')) {
+      console.log(read)
+    readCounter.innerText = `Number of Read Links: ${read.length}`;
+    } else if (event.target.classList.contains('delete-button')) {
+      linkCounter.innerText = `Number of Links: ${links.length}`;
+      readCounter.innerText = `Number of Read Links: ${read.length}`;
+    }
+  }
+
 function addCard(newCard) {
   event.preventDefault();
-  console.log(newCard)
   var addInput = `
     <div class="card">
       <h2 class = "inputed-title">${newCard.linkTitle}</h2>
@@ -67,9 +90,7 @@ function clearInputs() {
 }
 
 function runCardButtons() {
-  console.log(event.target)
   if (event.target.classList.contains('read-button')) {
-    console.log(event.target.parentNode.classList)
     event.target.parentNode.classList.toggle('read');
   } else if (event.target.classList.contains('delete-button')) {
     event.target.parentNode.remove();

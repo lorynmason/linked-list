@@ -5,13 +5,11 @@ var inputedTitle = document.querySelector('.inputed-title');
 var linkDisplay = document.querySelector('.link-display');
 var readCounter = document.querySelector('.read-counter');
 var linkCounter = document.querySelector('.link-counter');
-var read;
+var unreadCounter = document.querySelector('.unread-counter');
 var links = document.getElementsByTagName('div');
+var read;
 
 linkTitle.focus();
-
-// readCounter.innerText = `Number of Read Links: ${read.length}`
-
 
 function countLinks() {
   linkCounter.innerText = `Number of Links: ${links.length}`
@@ -22,11 +20,11 @@ inputButton.addEventListener('click', function() {
     event.preventDefault();
     alert('Please enter a site name and URL');
   }
-  
   var newCard = new Card(linkTitle, linkURL);
   addCard(newCard);
   clearInputs();
   countLinks();
+  countUnread();
   inputButton.disabled = true;
 })
 
@@ -53,6 +51,15 @@ linkDisplay.addEventListener('click', function(event) {
   readLinks(event);
 })
 
+function countUnread() {
+  console.log(read)
+  if (read === undefined) {
+    unreadCounter.innerText = `Number of Unread Links: ${links.length}`
+  } else if (read) {
+    unreadCounter.innerText = `Number of Unread Links: ${links.length - read.length}`;
+  }
+}
+
 function Card(linkTitle, linkURL) {
   this.linkTitle = linkTitle.value;
   this.linkURL = linkURL.value;
@@ -62,11 +69,12 @@ function readLinks() {
     read = document.querySelectorAll('.read');
   // console.log(event.target.classList.contains('read-button'))
     if (event.target.classList.contains('read-button')) {
-      console.log(read)
-    readCounter.innerText = `Number of Read Links: ${read.length}`;
+      readCounter.innerText = `Number of Read Links: ${read.length}`;
+      countUnread();
     } else if (event.target.classList.contains('delete-button')) {
       linkCounter.innerText = `Number of Links: ${links.length}`;
       readCounter.innerText = `Number of Read Links: ${read.length}`;
+      countUnread();
     }
   }
 

@@ -7,7 +7,7 @@
 h1 {
   font-size: 6vw;
   color: #ffffff;
-  margin-top: 25%;
+  margin-top: 5%;
 }
 
 div {
@@ -97,7 +97,7 @@ h4 {
 .read-button:hover,
 .delete-button:hover {
   border: none;
-  background-color: #ffffff;
+  background-color: transparent;
   color: #455a64;
   font-family: 'open sans', sans-serif;
   text-decoration: underline solid #ffc107;
@@ -111,22 +111,29 @@ h4 {
   color: #f05a28;
 }
 
-.read-counter{
-color: #455a64;
+.counters {
+  background-color: #CFD8DC;
+  width: 60%;
+  margin: 4% auto;
+  padding: 5px;
+  border: 5px solid #FFFFFF;
+  font-weight: 600;
 }
 
-.link-counter{
-color: #455a64;
+.read-counter,
+.link-counter,
+.unread-counter {
+  color: #455a64;
 }
 
 .user-input {
   grid-area: userinput;
-  height: 50vh;
+  height: 45vh;
 }
 
 .link-display {
   grid-area: linkdisplay;
-  height: 50vh;
+  height: 55vh;
 }
 
 .grid {
@@ -138,6 +145,11 @@ color: #455a64;
 
 @media only screen 
   and (min-width: 800px) {
+  
+  h1 {
+    margin-top: 50%;
+  }
+  
   .grid {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 

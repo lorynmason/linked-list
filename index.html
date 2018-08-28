@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,10 +17,13 @@
       <input class="link-url" type="url" placeholder="Website URL" required>
       <input class="user-input-button" type="submit" value="Enter" disabled="true">
     </form>
+    <article class="counters">
+      <p class="link-counter">Number of Links: 0</p>
+      <p class="unread-counter">Number of Unread Links: 0</p>
+      <p class="read-counter">Number of Read Links: 0</p>
+    </article>
   </section>
   <section class="link-display">
-    <p class="read-counter"></p>
-    <p class="link-counter"></p>
   </section>
 </section>
   <script src="main.js"></script>

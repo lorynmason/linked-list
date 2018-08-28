@@ -10,12 +10,30 @@ inputButton.addEventListener('click', function() {
   var newCard = new Card(linkTitle, linkURL);
   addCard(newCard);
   clearInputs();
+  inputButton.disabled = true;
+})
+
+linkTitle.addEventListener('keyup', function() {
+  if (linkTitle.value !== '' && linkURL.value !== '') {
+    inputButton.disabled = false;
+  }
+})
+
+linkURL.addEventListener('keyup', function() {
+  if (linkTitle.value !== '' && linkURL.value !== '') {
+    inputButton.disabled = false;
+  }
+})
+
+linkURL.addEventListener('paste', function() {
+  if (linkTitle.value !== '' && linkURL.value !== '') {
+    inputButton.disabled = false;
+  }
 })
 
 linkDisplay.addEventListener('click', function(event) {
   runCardButtons(event);
 })
-
 
 function Card(linkTitle, linkURL) {
   this.linkTitle = linkTitle.value;

@@ -7,15 +7,39 @@ var linkDisplay = document.querySelector('.link-display');
 linkTitle.focus();
 
 inputButton.addEventListener('click', function() {
+  if (linkTitle.value === '' || linkURL.value === '') {
+    event.preventDefault();
+    alert('Please enter a site name and URL');
+  }
+  
   var newCard = new Card(linkTitle, linkURL);
   addCard(newCard);
   clearInputs();
+  inputButton.disabled = true;
+
+})
+
+linkTitle.addEventListener('keyup', function() {
+  if (linkTitle.value !== '' && linkURL.value !== '') {
+    inputButton.disabled = false;
+  } 
+})
+
+linkURL.addEventListener('keyup', function() {
+  if (linkTitle.value !== '' && linkURL.value !== '') {
+    inputButton.disabled = false;
+  } 
+})
+
+linkURL.addEventListener('paste', function() {
+  if (linkTitle.value !== '' && linkURL.value !== '') {
+    inputButton.disabled = false;
+  }
 })
 
 linkDisplay.addEventListener('click', function(event) {
   runCardButtons(event);
 })
-
 
 function Card(linkTitle, linkURL) {
   this.linkTitle = linkTitle.value;

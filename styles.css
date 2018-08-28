@@ -14,9 +14,9 @@ div {
   background-color: #ffffff;
   padding: 7px;
   padding-bottom: 25px;
-  width: 95%;
+  width: 90%;
   text-align: left;
-  margin: 0px 0px 15px 1%;
+  margin: 15px 0px 15px 4%;
 }
 
 h2 {
@@ -55,7 +55,7 @@ h4 {
   background-color: #cfd8dc;
   left: 50%;
   text-align: center;
-  padding-top: 15px;
+  /* padding-top: 15px; */
   }
 
 .logo {
@@ -66,12 +66,12 @@ h4 {
 .link-url {
   display: block;
   margin: 15px auto;
-  width: 60%;
+  width: 80%;
 }
 
 .user-input-button {
   background-color: #ffc107;
-  width: 60%;
+  width: 80%;
 }
 
 .user-input-button:hover {

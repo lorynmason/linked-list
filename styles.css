@@ -71,7 +71,7 @@ h4 {
 
 .user-input-button {
   background-color: #ffc107;
-  width: 80%;
+  width: 81.5%;
 }
 
 .user-input-button:hover {
@@ -113,11 +113,12 @@ h4 {
 
 .counters {
   background-color: #CFD8DC;
-  width: 60%;
+  width: 78%;
   margin: 4% auto;
   padding: 5px;
   border: 5px solid #FFFFFF;
   font-weight: 600;
+  text-align: left;
 }
 
 .read-counter,

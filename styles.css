@@ -1,28 +1,29 @@
 * {
-  font-size: 16px;
+  box-sizing: border-box;
   font-family: 'open sans', sans-serif;
+  font-size: 16px;
   margin: 0px;
 }
 
 h1 {
-  font-size: 6vw;
   color: #ffffff;
+  font-size: 6vw;
   margin-top: 5%;
 }
 
 div {
   background-color: #ffffff;
+  margin: 15px 0px 15px 5%;
   padding: 7px;
   padding-bottom: 25px;
-  width: 90%;
   text-align: left;
-  margin: 15px 0px 15px 4%;
+  width: 90%;
 }
 
 h2 {
+  border-bottom: 1px solid #cfd8dc; 
   color: #445A64;
   font-size: 3vw;
-  border-bottom: 1px solid #cfd8dc; 
   padding: 5px;
 } 
 
@@ -55,8 +56,7 @@ h4 {
   background-color: #cfd8dc;
   left: 50%;
   text-align: center;
-  /* padding-top: 15px; */
-  }
+}
 
 .logo {
   height: 6vw;
@@ -66,12 +66,12 @@ h4 {
 .link-url {
   display: block;
   margin: 15px auto;
-  width: 80%;
+  width: 90%;
 }
 
 .user-input-button {
   background-color: #ffc107;
-  width: 81.5%;
+  width: 90%;
 }
 
 .user-input-button:hover {
@@ -80,8 +80,8 @@ h4 {
 
 .read-button,
 .delete-button {
-  border: none;
   background-color: transparent;
+  border: none;
   color: #607d8b;
   text-decoration: underline solid #f2f4f4;
 }
@@ -96,8 +96,8 @@ h4 {
 
 .read-button:hover,
 .delete-button:hover {
-  border: none;
   background-color: transparent;
+  border: none;
   color: #455a64;
   font-family: 'open sans', sans-serif;
   text-decoration: underline solid #ffc107;
@@ -113,12 +113,12 @@ h4 {
 
 .counters {
   background-color: #CFD8DC;
-  width: 78%;
-  margin: 4% auto;
-  padding: 5px;
   border: 5px solid #FFFFFF;
+  margin: 4% auto;
   font-weight: 600;
+  padding: 5px;
   text-align: left;
+  width: 90%;
 }
 
 .read-counter,
@@ -152,16 +152,31 @@ h4 {
   }
   
   .grid {
-    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
       'userinput linkdisplay';
+    grid-template-columns: 1fr 1fr;
   }
 
   .user-input {
     height: 100vh;
   }
 
+  .user-input-button {
+    margin: 10px auto;
+  }
+
   .link-display {
    height: 100vh;
   } 
 }
+
+@media only screen
+  and (max-width: 320px){
+    .user-input {
+      height: 50vh;
+    }
+
+    .link-display {
+      height: 50vh;
+    }
+  }

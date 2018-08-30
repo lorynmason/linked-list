@@ -28,11 +28,6 @@ linkURL.addEventListener('paste', function() {
   }
 })
 
-linkDisplay.addEventListener('click', function(event) {
-  runCardButtons(event);
-  readLinks(event);
-})
-
 inputButton.addEventListener('click', function() {
   event.preventDefault();
   checkInputs();
@@ -44,14 +39,10 @@ inputButton.addEventListener('click', function() {
   inputButton.disabled = true;
 })
 
-function checkInputs() {
-  console.log(linkTitle.value)
-  if (linkTitle.value === ' ' || linkURL.value === ' ') {
-    event.preventDefault();
-    alert('Please enter a site name and URL');
-    return;
-  }
-}
+linkDisplay.addEventListener('click', function(event) {
+  runCardButtons(event);
+  readLinks(event);
+})
 
 function Card(linkTitle, linkURL) {
   this.linkTitle = linkTitle.value;
@@ -60,13 +51,13 @@ function Card(linkTitle, linkURL) {
 
 function addCard(newCard) {
   var addInput = `
-    <div class="card">
-      <h2 class = "inputed-title">${newCard.linkTitle}</h2>
-      <h3 class = "inputed-URL"><a href ="http://${newCard.linkURL}" target="_blank">${newCard.linkURL}</a></h3>
-      <input class="read-button" type="button" value="Read"> 
-      <input class = "delete-button" type = "button" value = "Delete">
-    </div>`
-
+  <div class="card">
+  <h2 class = "inputed-title">${newCard.linkTitle}</h2>
+  <h3 class = "inputed-URL"><a href ="http://${newCard.linkURL}" target="_blank">${newCard.linkURL}</a></h3>
+  <input class="read-button" type="button" value="Read"> 
+  <input class = "delete-button" type = "button" value = "Delete">
+  </div>`
+  
   linkDisplay.insertAdjacentHTML('afterbegin', addInput)
 }
 
@@ -77,7 +68,16 @@ function runCardButtons() {
     event.target.parentNode.remove();
   }
 }
-                
+
+function checkInputs() {
+  console.log(linkTitle.value)
+  if (linkTitle.value === ' ' || linkURL.value === ' ') {
+    event.preventDefault();
+    alert('Please enter a site name and URL');
+    return;
+  }
+}
+
 function clearInputs() {
   linkTitle.value = '';
   linkTitle.focus();
